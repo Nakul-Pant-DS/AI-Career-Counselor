@@ -5,7 +5,7 @@ result = DocumentParser.extract_text(
 )
 
 print("=" * 50)
-print("Pages:", result["pages"])
-print("Characters:", result["characters"])
+print("Pages:", result.pages)
+print("Characters:", result.characters)
 print("=" * 50)
-print(result["preview"])
+print(result.preview)

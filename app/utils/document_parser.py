@@ -1,6 +1,7 @@
 import fitz
 from app.core.logging import logger
 from app.schemas.document_schema import DocumentData
+from app.utils.text_cleaner import TextCleaner
 
 
 class DocumentParser:
@@ -22,12 +23,13 @@ class DocumentParser:
                     extracted_text += page.get_text()
 
             logger.info("PDF text extraction completed.")
+            clean_text = TextCleaner.clean(extracted_text)
 
             return DocumentData(
                 pages=total_pages,
-                characters=len(extracted_text),
-                text=extracted_text,
-                preview=extracted_text[:300]
+                characters=len(clean_text),
+                text=clean_text,
+                preview=clean_text[:300]
             )
 
         except Exception as e:

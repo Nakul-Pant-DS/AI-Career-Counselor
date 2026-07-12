@@ -3,52 +3,51 @@
 # ==========================
 __pycache__/
 *.py[cod]
-*$py.class
+*.pyo
+*.pyd
 
-# ==========================
 # Virtual Environment
-# ==========================
 .venv/
 venv/
+env/
 
-# ==========================
 # Environment Variables
-# ==========================
 .env
 
-# ==========================
 # Logs
-# ==========================
 logs/
 *.log
 
-# ==========================
-# VS Code
-# ==========================
-.vscode/
-
-# ==========================
-# Pytest
-# ==========================
-.pytest_cache/
-
-# ==========================
-# MLflow
-# ==========================
-mlruns/
-
-# ==========================
 # Vector Database
-# ==========================
-vector_db/
+data/vector_db/
 
-# ==========================
 # Uploaded Resumes
-# ==========================
 data/resumes/
 
-# ==========================
-# Operating System Files
-# ==========================
-Thumbs.db
+# Python Cache
+.pytest_cache/
+.mypy_cache/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Build
+build/
+dist/
+
+# Backup Files
+*_old.txt
+
+# Runtime generated data
+data/resumes/
+data/vector_db/
+
+# Keep the source knowledge documents
+!data/career_docs/
+!data/interview_docs/
+!data/job_descriptions/

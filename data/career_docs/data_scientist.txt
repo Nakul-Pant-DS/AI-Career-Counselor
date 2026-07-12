@@ -1,0 +1,34 @@
+Data Scientist
+
+Data Scientists analyze large datasets and build predictive models to solve business problems.
+
+Core Skills
+
+Python
+SQL
+Statistics
+Machine Learning
+Deep Learning
+Data Visualization
+Power BI
+Tableau
+Pandas
+NumPy
+Scikit-Learn
+TensorFlow
+
+Responsibilities
+
+Analyze structured and unstructured data.
+Build predictive models.
+Perform feature engineering.
+Communicate insights to stakeholders.
+Deploy machine learning solutions.
+
+Preferred Background
+
+Computer Science
+Artificial Intelligence
+Data Science
+Statistics
+Mathematics

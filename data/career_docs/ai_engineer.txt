@@ -1,0 +1,26 @@
+AI Engineers build intelligent systems using Machine Learning, Deep Learning, Python, SQL, TensorFlow, PyTorch, NLP, Computer Vision, FastAPI, Docker, Kubernetes and Cloud technologies.
+
+Typical responsibilities include:
+
+- Building ML models
+- Deploying AI applications
+- Creating APIs
+- MLOps
+- Data preprocessing
+- Model evaluation
+- Production deployment
+
+Expected Skills:
+
+Python
+Machine Learning
+Deep Learning
+TensorFlow
+PyTorch
+Docker
+Azure
+AWS
+SQL
+Git
+Linux
+FastAPI
