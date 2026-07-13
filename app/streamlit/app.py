@@ -70,6 +70,12 @@ st.divider()
 # Resume Upload
 # ==========================================================
 
+# ==========================================================
+# Resume Upload
+# ==========================================================
+
+import traceback
+
 st.header("📄 Upload Resume")
 
 uploaded_file = st.file_uploader(
@@ -78,6 +84,11 @@ uploaded_file = st.file_uploader(
 )
 
 if uploaded_file is not None:
+
+    st.write("API URL:", f"{API_BASE_URL}/resume/upload")
+    st.write("Backend:", API_BASE_URL)
+    st.write("File Name:", uploaded_file.name)
+    st.write("File Size (MB):", round(len(uploaded_file.getvalue()) / (1024 * 1024), 2))
 
     if st.button("📤 Upload Resume", use_container_width=True):
 
@@ -93,13 +104,14 @@ if uploaded_file is not None:
 
             try:
 
-                st.write("API URL:", f"{API_BASE_URL}/resume/upload")
-                st.write("Backend:", API_BASE_URL)
-
                 response = requests.post(
                     f"{API_BASE_URL}/resume/upload",
-                    files=files
+                    files=files,
+                    timeout=180
                 )
+
+                st.write("HTTP Status:", response.status_code)
+                st.write("Response Headers:", dict(response.headers))
 
                 if response.status_code == 200:
 
@@ -118,18 +130,25 @@ if uploaded_file is not None:
                         st.metric("Characters", data["characters"])
 
                     with st.expander("Resume Preview"):
-
                         st.write(data["preview"])
 
                 else:
 
-                    st.error(response.text)
+                    st.error("Backend returned an error.")
 
-            except Exception as e:
+                    st.code(response.text)
 
-                st.error(str(e))
+            except requests.exceptions.RequestException as e:
 
-st.divider()
+                st.error("Request Exception")
+
+                st.code(traceback.format_exc())
+
+            except Exception:
+
+                st.error("Unexpected Exception")
+
+                st.code(traceback.format_exc())
 
 # ==========================================================
 # Career Analysis
