@@ -12,6 +12,9 @@ API_BASE_URL = os.getenv(
     "http://127.0.0.1:8000/api/v1"
 )
 
+st.sidebar.write("Backend URL:")
+st.sidebar.code(API_BASE_URL)
+
 st.set_page_config(
     page_title="AI Career Counselor",
     page_icon="🤖",
@@ -89,6 +92,9 @@ if uploaded_file is not None:
             }
 
             try:
+
+                st.write("API URL:", f"{API_BASE_URL}/resume/upload")
+                st.write("Backend:", API_BASE_URL)
 
                 response = requests.post(
                     f"{API_BASE_URL}/resume/upload",
