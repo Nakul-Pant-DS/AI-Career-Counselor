@@ -28,7 +28,11 @@ class DocumentIngestionService:
         # Step 1 : Chunking
         # -------------------------------------------------
 
+        logger.info("STEP 1 - Chunking started")
+
         chunks = self.chunker.split(request.content)
+
+        logger.info(f"STEP 1 COMPLETE : {len(chunks)} chunks")
 
         logger.info(f"Created {len(chunks)} chunks.")
 
@@ -36,7 +40,11 @@ class DocumentIngestionService:
         # Step 2 : Embeddings
         # -------------------------------------------------
 
+        logger.info("STEP 2 - Generating embeddings")
+
         embeddings = self.embedder.encode(chunks)
+
+        logger.info("STEP 2 COMPLETE")
 
         # -------------------------------------------------
         # Step 3 : Create DocumentChunk objects
@@ -67,11 +75,19 @@ class DocumentIngestionService:
         # Step 4 : Store
         # -------------------------------------------------
 
+        logger.info("STEP 3 - Loading vector store")
+
         store = VectorStore(request.target_index)
+
+        logger.info("STEP 3 COMPLETE")
+
+        logger.info("STEP 4 - Writing FAISS")
 
         store.append(
             embeddings,
             documents
         )
+
+        logger.info("STEP 4 COMPLETE")
 
         logger.info("Document ingestion completed.")

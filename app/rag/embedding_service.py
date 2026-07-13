@@ -17,22 +17,33 @@ class EmbeddingService:
 
         from app.rag.model_registry import ModelRegistry
 
+        logger.info("Loading SentenceTransformer...")
         self.model = ModelRegistry.embedding_model()
+        logger.info("SentenceTransformer loaded.")
         
 
     def encode(self, texts: list[str]):
 
-        logger.info(
-            f"Generating embeddings for {len(texts)} chunks."
-        )
+        #logger.info(
+            #f"Generating embeddings for {len(texts)} chunks."
+        #)
+
+        #embeddings = self.model.encode(
+            #texts,
+            #convert_to_numpy=True
+        #)
+
+        #logger.info(
+            #f"Embedding dimension: {embeddings.shape[1]}"
+        #)
+
+        logger.info("Encoding started")
 
         embeddings = self.model.encode(
             texts,
             convert_to_numpy=True
         )
 
-        logger.info(
-            f"Embedding dimension: {embeddings.shape[1]}"
-        )
+        logger.info("Encoding finished")
 
         return embeddings
