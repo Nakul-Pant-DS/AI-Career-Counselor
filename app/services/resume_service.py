@@ -68,21 +68,21 @@ class ResumeService:
         # Ingest into Resume Vector Database
         # -------------------------------------------------
 
-        ingestion_request = IngestionRequest(
+        #ingestion_request = IngestionRequest(
 
-            content=document.text,
+            #content=document.text,
 
-            document_name=file.filename,
+            #document_name=file.filename,
 
-            source="resume",
+            #source="resume",
 
-            target_index=VectorIndex.RESUME
+            #target_index=VectorIndex.RESUME
 
-        )
+        #)
 
-        ingestion_service = DocumentIngestionService()
+        #ingestion_service = DocumentIngestionService()
 
-        ingestion_service.ingest(ingestion_request)
+        #ingestion_service.ingest(ingestion_request)
 
         logger.info("Resume successfully indexed.")
 
